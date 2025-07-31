@@ -1,0 +1,60 @@
+{
+	"candidates": [
+		{
+			"id": 1,
+			"image": "/img/Ziferblat.jpg",
+			"name": "Ziferblat",
+			"country": "Ukraine",
+			"votes": 10
+		},
+		{
+			"id": 2,
+			"image": "/img/Katarsis.jpg",
+			"name": "Katarsis",
+			"country": "Lithuania",
+			"votes": 10
+		},
+		{
+			"id": 3,
+			"image": "/img/lucio_corsi.jpg",
+			"name": "Lucio Corsi",
+			"country": "Italia",
+			"votes": 10
+		},
+		{
+			"id": 4,
+			"image": "/img/abor&tynna.jpg",
+			"name": "Abor & Tynna",
+			"country": "Germany",
+			"votes": 10
+		},
+		{
+			"id": 5,
+			"image": "/img/tautumeitas.jpg",
+			"name": "Tautumeitas",
+			"country": "Latvia",
+			"votes": 10
+		},
+		{
+			"id": 6,
+			"image": "/img/napa.jpg",
+			"name": "Napa",
+			"country": "Portugal",
+			"votes": 10
+		},
+		{
+			"id": 7,
+			"image": "/img/justyna.jpg",
+			"name": "Justyna Steczkowska",
+			"country": "Poland",
+			"votes": 10
+		},
+		{
+			"id": 8,
+			"image": "/img/melody.jpg",
+			"name": "Melody",
+			"country": "Spain",
+			"votes": 10
+		}
+	]
+}
