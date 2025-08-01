@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
 	title: 'Eurovision',
 	description: 'Eurovision Singer 2025',
+	icons: {
+		icon: '/favicon-v-2.ico',
+	},
 }
 
 export default function RootLayout({

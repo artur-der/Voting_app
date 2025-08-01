@@ -1,8 +1,8 @@
 'use client'
 
-import { CandidateProps } from '@/types/Candidate'
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
+import { CandidateProps } from '@/types/Candidate'
+import VoteButton from '../VoteButton'
 
 export default function Candidate({
 	id,
@@ -10,30 +10,16 @@ export default function Candidate({
 	country,
 	image,
 	votes,
+	votedCandidateId,
+	onVote,
 }: CandidateProps) {
-	const [hasVoted, setHasVoted] = useState(false)
-	const [localVotes, setLocalVotes] = useState(votes)
-
-	useEffect(() => {
-		const votedCandidates = JSON.parse(
-			localStorage.getItem('votedCandidates') || '[]'
-		)
-		setHasVoted(votedCandidates.includes(id))
-	}, [id])
+	const isMyVote = votedCandidateId === id
+	const hasVoted = votedCandidateId !== null
 
 	const handleVote = () => {
-		if (hasVoted) return
-
-		setLocalVotes(localVotes + 1)
-		setHasVoted(true)
-
-		const votedCandidates = JSON.parse(
-			localStorage.getItem('votedCandidates') || '[]'
-		)
-		localStorage.setItem(
-			'votedCandidates',
-			JSON.stringify([...votedCandidates, id])
-		)
+		if (!hasVoted) {
+			onVote(id)
+		}
 	}
 
 	return (
@@ -51,19 +37,14 @@ export default function Candidate({
 			<h2 className='text-lg sm:text-xl font-semibold text-gray-800'>{name}</h2>
 			<p className='text-gray-500 mb-2'>{country}</p>
 			<p className='text-md sm:text-lg font-bold text-pink-600 mb-4'>
-				Votes: {localVotes}
+				Votes: {votes}
 			</p>
-			<button
+
+			<VoteButton
+				isMyVote={isMyVote}
+				hasVoted={hasVoted}
 				onClick={handleVote}
-				disabled={hasVoted}
-				className={`px-5 py-2 rounded-md font-semibold transition-colors duration-200 ${
-					hasVoted
-						? 'bg-gray-400 cursor-not-allowed'
-						: 'bg-pink-600 hover:bg-pink-700 text-white'
-				}`}
-			>
-				{hasVoted ? 'Voted' : 'Vote'}
-			</button>
+			/>
 		</div>
 	)
 }

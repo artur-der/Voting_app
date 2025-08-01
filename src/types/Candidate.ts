@@ -4,4 +4,7 @@ export interface CandidateProps {
 	country: string
 	image: string
 	votes: number
+
+	votedCandidateId: number | null
+	onVote: (id: number) => void
 }
